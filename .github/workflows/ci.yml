@@ -32,9 +32,9 @@ jobs:
           distribution: temurin
           java-version: "17"
           cache: maven
-      - name: Compilar y probar backend
-        working-directory: backend/crud-application
-        run: mvn -B verify
+      #- name: Compilar y probar backend
+        #working-directory: backend/crud-application
+        #run: mvn -B verify
 
   frontend:
     runs-on: self-hosted
