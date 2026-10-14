@@ -6,7 +6,6 @@ on:
   pull_request:
 
 jobs:
-  # 1) Backend: compila y corre prueba con un MySQL temporal
   backend:
     runs-on: ubuntu-latest
     services:
@@ -37,7 +36,6 @@ jobs:
         working-directory: backend/crud-application
         run: mvn -B verify
 
-  # 2) Frontend: instala dependencia y construye
   frontend:
     runs-on: ubuntu-latest
     steps:
@@ -54,8 +52,7 @@ jobs:
         run: |
           npm ci
           npm run build
-
-  # 3) Docker: construye las imágenes con tus Dockerfile y docker-compose
+          
   docker:
     runs-on: ubuntu-latest
     needs: [backend, frontend]
